@@ -1,0 +1,24 @@
+@font-face { font-family: 'Fraunces'; src: url('../fonts/fraunces-latin-500-normal.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/fraunces-latin-700-normal.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/fraunces-latin-400-italic.woff2') format('woff2'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Fraunces'; src: url('../fonts/fraunces-latin-500-italic.woff2') format('woff2'); font-weight: 500; font-style: italic; font-display: swap; }
+@font-face { font-family: 'DM Sans'; src: url('../fonts/dm-sans-latin-400-normal.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DM Sans'; src: url('../fonts/dm-sans-latin-500-normal.woff2') format('woff2'); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: 'DM Sans'; src: url('../fonts/dm-sans-latin-700-normal.woff2') format('woff2'); font-weight: 700; font-style: normal; font-display: swap; }
+
+:root {
+  --paper: #F3EEE5;
+  --card: #FFFDF9;
+  --ink: #1D2A33;
+  --body: #34434C;
+  --soft: #5F6E76;
+  --line: #E2DACC;
+  --done: #B9C4C0;
+
+  /* Current segment, set by main.js. --c is decorative, --cd is safe for small text. */
+  --c: #2C9A58;
+  --cd: #007C3F;
+
+  --display: 'Fraunces', Georgia, serif;
+  --ui: 'DM Sans', system-ui, sans-serif;
+}

@@ -1,0 +1,8 @@
+.tabs { display: flex; gap: 8px; padding: 8px 16px calc(10px + env(safe-area-inset-bottom)); flex-shrink: 0; }
+.tabs button { flex: 1; min-width: 0; height: 50px; border-radius: 16px; border: 1px solid var(--line); background: var(--card); font-size: 14px; font-weight: 700; color: var(--soft); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 7px; transition: background-color .2s, color .2s; }
+.tabs button.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.tabs svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+@media (min-width: 900px) {
+  .tabs { display: none; }
+}

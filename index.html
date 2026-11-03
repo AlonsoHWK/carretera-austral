@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F3EEE5">
+<meta name="description" content="Guía personal y sin conexión de la Carretera Austral, de Puerto Montt a Caleta Tortel.">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Austral">
+<title>Carretera Austral</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" href="fonts/fraunces-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/map.css">
+<link rel="stylesheet" href="css/tabs.css">
+<link rel="stylesheet" href="css/info.css">
+</head>
+<body>
+<div class="app" id="app" hidden>
+  <header class="top">
+    <div class="brand">
+      <div class="kick"><span id="kick"></span><span class="net" id="net" hidden>Sin conexión</span></div>
+      <h1>Carretera <em>Austral</em></h1>
+    </div>
+    <div class="prog" aria-live="polite">
+      <b id="pn">01</b><span id="pt">/11</span>
+      <small id="pd">Día 1</small>
+    </div>
+    <button class="infobtn" id="infobtn" type="button">Info</button>
+  </header>
+  <main id="main">
+    <section class="view" id="mapv" aria-label="Mapa">
+      <div class="mapwrap">
+        <div class="mapcard" id="mapcard">
+          <span class="hint">Toca una parada</span>
+          <svg id="svg" role="group" aria-label="Mapa de la ruta"></svg>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+    </section>
+    <section class="view on" id="routev" aria-label="Ruta">
+      <div class="track" id="track"></div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </section>
+    <section class="view" id="infov" aria-label="Información">
+      <div class="info" id="info"></div>
+    </section>
+  </main>
+  <nav class="tabs" aria-label="Secciones">
+    <button class="on" type="button" data-v="routev" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Ruta
+    </button>
+    <button type="button" data-v="mapv">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Mapa
+    </button>
+    <button type="button" data-v="infov">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8v.01"/></svg>Info
+    </button>
+  </nav>
+</div>
+<div class="fatal" id="fatal" hidden></div>
+<div class="toast" id="toast" role="status" hidden></div>
+<noscript><p class="noscript">Esta guía necesita JavaScript para funcionar.</p></noscript>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

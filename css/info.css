@@ -1,0 +1,39 @@
+.info { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 2px 16px 12px; display: flex; flex-direction: column; gap: 12px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.info::-webkit-scrollbar { display: none; }
+.panel { flex-shrink: 0; background: var(--card); border: 1px solid var(--line); border-radius: 22px; padding: 18px; }
+.panel h2 { font-family: var(--display); font-size: 22px; font-weight: 700; line-height: 1.1; letter-spacing: -.01em; }
+.panel h2 em { font-weight: 400; color: var(--cd); }
+.panel > p { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--body); }
+
+.field { display: block; margin-top: 12px; font-size: 14px; font-weight: 500; }
+.field input, .field textarea { display: block; width: 100%; margin-top: 6px; border: 1px solid var(--line); border-radius: 14px; background: var(--paper); padding: 11px 14px; font: 400 16px/1.4 var(--ui); color: var(--ink); }
+.field input { min-height: 48px; }
+.field textarea { min-height: 96px; resize: vertical; overflow-wrap: anywhere; font-size: 14px; }
+.btnrow { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.btn { flex: 1 1 auto; min-height: 48px; padding: 0 16px; border-radius: 14px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-size: 14px; font-weight: 700; cursor: pointer; }
+.btn--solid { background: var(--ink); color: var(--paper); }
+.status { margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--body); }
+.status--warn { color: #8A2F1B; font-weight: 500; }
+
+.calls { list-style: none; margin-top: 8px; }
+.calls li + li { border-top: 1px solid var(--line); }
+.calls a { display: flex; align-items: center; gap: 14px; min-height: 52px; padding: 6px 0; color: var(--ink); text-decoration: none; font-size: 14px; line-height: 1.35; }
+.calls b { flex: 0 0 44px; font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--cd); }
+
+.datenotes { background: #FBF4E4; border-color: #E8D8B0; }
+.datenotes ul { margin-top: 10px; padding-left: 18px; font-size: 14px; line-height: 1.55; color: var(--body); }
+.datenotes li + li { margin-top: 8px; }
+
+.checks { list-style: none; margin-top: 6px; }
+.checks label { display: flex; align-items: center; gap: 12px; min-height: 44px; font-size: 14px; line-height: 1.35; cursor: pointer; }
+.checks input { flex-shrink: 0; width: 22px; height: 22px; accent-color: var(--ink); }
+.checks input:checked + span { color: var(--soft); text-decoration: line-through; }
+
+.safety dt { margin-top: 14px; font-size: 14px; font-weight: 700; }
+.safety dd { margin-top: 2px; font-size: 14px; line-height: 1.55; color: var(--body); }
+.closeinfo { display: none; }
+
+@media (min-width: 900px) {
+  #infov { background: var(--paper); }
+  .info { display: grid; grid-template-columns: 1fr 1fr; align-items: start; padding: 2px; }
+}
