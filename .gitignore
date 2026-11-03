@@ -1,0 +1,17 @@
+# OneDrive conflict and temp files
+*-Alonso.*
+*-Alonso-*
+*-DESKTOP-*
+*-LAPTOP-*
+* - Copy*
+* (1).*
+~$*
+desktop.ini
+Thumbs.db
+.tmp*
+
+# Test tooling and output
+node_modules/
+test-results/
+playwright-report/
+tests/screenshots/

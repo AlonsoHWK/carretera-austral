@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#F3EEE5">
+<title>Carretera Austral — Design reference (Concepto B)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,400;1,9..144,500&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--paper:#F3EEE5;--card:#FFFDF9;--ink:#1D2A33;--soft:#6B7A82;--line:#E2DACC;--c:#2F9E5B}
+html,body{height:100%}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;overscroll-behavior:none}
+.app{height:100vh;height:100dvh;display:flex;flex-direction:column;padding-top:env(safe-area-inset-top)}
+.top{display:flex;align-items:flex-end;justify-content:space-between;padding:14px 20px 12px;flex-shrink:0}
+.kick{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--c);font-weight:700;transition:color .3s}
+.brand h1{font-family:'Fraunces',serif;font-weight:700;font-size:26px;line-height:1;letter-spacing:-.02em;margin-top:4px}
+.brand h1 em{font-style:italic;font-weight:400;color:var(--c);transition:color .3s}
+.prog{text-align:right;line-height:1}
+.prog b{font-family:'Fraunces',serif;font-size:30px;font-weight:700;color:var(--c);transition:color .3s}
+.prog span{font-family:'Fraunces',serif;font-size:15px;color:var(--soft)}
+.prog small{display:block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-top:4px}
+main{flex:1;position:relative;min-height:0}
+.view{position:absolute;inset:0;display:flex;flex-direction:column;visibility:hidden}
+.view.on{visibility:visible}
+.track{flex:1;min-height:0;display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:2px 20px 10px;scrollbar-width:none;scroll-padding:0 20px}
+.track::-webkit-scrollbar{display:none}
+.card{flex:0 0 100%;scroll-snap-align:center;scroll-snap-stop:always;background:var(--card);border:1px solid var(--line);border-radius:26px;overflow-y:auto;overscroll-behavior:contain;box-shadow:0 14px 30px -22px rgba(29,42,51,.45);scrollbar-width:none}
+.card::-webkit-scrollbar{display:none}
+.hero{background:var(--tc);color:#fff;padding:18px 22px 26px;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 100% 0%,rgba(255,255,255,.22),transparent 55%);pointer-events:none}
+.mt{position:absolute;right:-8px;bottom:-1px;width:78%;height:auto;opacity:.22}
+.hrow{display:flex;justify-content:space-between;align-items:center;position:relative;z-index:1}
+.pill{background:rgba(255,255,255,.2);padding:6px 11px;border-radius:100px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.chk{font-size:11px;font-weight:700;opacity:0;transition:opacity .2s}
+.card.done .chk{opacity:1}
+.dia{font-family:'Fraunces',serif;font-style:italic;font-size:15px;margin-top:26px;opacity:.92;position:relative;z-index:1}
+.hero h2{font-family:'Fraunces',serif;font-size:36px;font-weight:700;line-height:1;letter-spacing:-.02em;margin-top:4px;position:relative;z-index:1}
+.hero .sub{font-family:'Fraunces',serif;font-style:italic;font-size:16px;opacity:.9;margin-top:8px;position:relative;z-index:1}
+.body{padding:20px 22px 24px}
+.desc{font-size:15px;line-height:1.65;color:#34434C}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:18px}
+.fact{background:var(--paper);border-radius:14px;padding:12px 14px}
+.fact:last-child{grid-column:span 2}
+.fact span{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--soft);font-weight:700;margin-bottom:4px}
+.fact b{font-size:14px;font-weight:500}
+.tip{margin-top:16px;border-left:3px solid var(--tc);background:var(--tl);padding:13px 15px;border-radius:0 14px 14px 0;font-size:14px;line-height:1.55;color:#24343D}
+.tip strong{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--tc);margin-bottom:4px}
+.dbtn{width:100%;margin-top:18px;height:50px;border-radius:15px;border:1.5px solid var(--tc);background:transparent;color:var(--tc);font:700 14px 'DM Sans';cursor:pointer;transition:all .2s}
+.card.done .dbtn{background:var(--tc);color:#fff}
+.dots{display:flex;justify-content:center;gap:5px;padding:4px 0 10px;flex-shrink:0}
+.dots i{width:6px;height:6px;border-radius:3px;background:var(--line);transition:all .3s}
+.dots i.on{width:22px;background:var(--c)}
+.dots i.dn{background:#B9C4C0}
+.mapwrap{flex:1;min-height:0;padding:0 16px 8px;display:flex;flex-direction:column}
+.mapcard{flex:1;min-height:0;background:var(--card);border:1px solid var(--line);border-radius:26px;padding:10px;position:relative}
+.mapcard svg{width:100%;height:100%;display:block}
+.pin{cursor:pointer}
+.pin .o{stroke-width:2;transition:all .25s}
+.pin .n{font:700 9px 'DM Sans';pointer-events:none}
+.pin .lbl{font:500 10px 'DM Sans';fill:var(--soft);pointer-events:none}
+.pin.on .lbl{fill:var(--ink);font-weight:700}
+.legend{display:flex;gap:6px;overflow-x:auto;padding:10px 2px 2px;scrollbar-width:none}
+.legend::-webkit-scrollbar{display:none}
+.legend span{flex-shrink:0;display:flex;align-items:center;gap:6px;font-size:11px;color:var(--soft);background:var(--card);border:1px solid var(--line);padding:6px 10px;border-radius:100px}
+.legend i{width:8px;height:8px;border-radius:50%}
+.hint{position:absolute;top:14px;left:16px;font-size:11px;color:var(--soft)}
+.tabs{display:flex;gap:8px;padding:8px 16px calc(10px + env(safe-area-inset-bottom));flex-shrink:0}
+.tabs button{flex:1;height:50px;border-radius:16px;border:1px solid var(--line);background:var(--card);font:700 14px 'DM Sans';color:var(--soft);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s}
+.tabs button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.tabs svg{width:18px;height:18px}
+@media(min-width:900px){
+  .app{max-width:1180px;margin:0 auto}
+  .top{padding:28px 28px 18px}
+  .brand h1{font-size:44px}
+  main{display:grid;grid-template-columns:400px 1fr;gap:20px;padding:0 28px 28px}
+  .view{position:relative;inset:auto;display:flex!important;visibility:visible!important}
+  .mapwrap{padding:0}
+  .track{padding:0 0 10px}
+  .tabs{display:none}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="top">
+    <div class="brand">
+      <div class="kick" id="kick">Ruta mochilera · 20 días</div>
+      <h1>Carretera <em>Austral</em></h1>
+    </div>
+    <div class="prog"><b id="pn">01</b><span>/11</span><small id="pd">Día 1</small></div>
+  </header>
+  <main>
+    <section class="view" id="mapv">
+      <div class="mapwrap">
+        <div class="mapcard">
+          <span class="hint">Toca una parada</span>
+          <svg viewBox="0 0 300 520" preserveAspectRatio="xMidYMid meet" id="svg">
+            <path id="base" fill="none" stroke="#E2DACC" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+            <path id="trail" fill="none" stroke-width="3.5" stroke-linecap="round" style="transition:stroke-dashoffset .6s ease,stroke .3s"/>
+            <g id="pins"></g>
+          </svg>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+    </section>
+    <section class="view on" id="routev">
+      <div class="track" id="track"></div>
+      <div class="dots" id="dots"></div>
+    </section>
+  </main>
+  <nav class="tabs">
+    <button class="on" data-v="routev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Ruta</button>
+    <button data-v="mapv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Mapa</button>
+  </nav>
+</div>
+<script>
+const T={
+  bosque:{n:"Bosque lluvioso",c:"#2C9A58",l:"#E3F3E9"},
+  fiordo:{n:"Fiordos",c:"#0E9C96",l:"#DDF3F1"},
+  aysen:{n:"Corazón de Aysén",c:"#3567D6",l:"#E3EAFB"},
+  lago:{n:"Lago General Carrera",c:"#1189CF",l:"#DCEFFA"},
+  estepa:{n:"Estepa",c:"#DB8A1F",l:"#FBEFDC"},
+  fin:{n:"Fin del viaje",c:"#D2533A",l:"#FBE6E0"}
+};
+const S=[
+ {d:"1",t:"bosque",n:"Puerto Montt",s:"El punto de partida",x:70,y:30,r:1,desc:"Abastecerse, organizar la mochila y tomar bus o ferry hacia Hornopirén. El cruce La Arena → Puelche es corto y marca el inicio real de la ruta.",dorm:"Hornopirén",mov:"Bus + ferry",hl:"Abastecimiento",tip:"Saca efectivo antes de salir: los cajeros escasean en el primer tramo."},
+ {d:"2–3",t:"bosque",n:"Hornopirén",s:"Fiordos y primer gran ferry",x:95,y:70,r:1,desc:"Trekking en el Parque Nacional Hornopirén y luego el ferry hacia Caleta Gonzalo, navegando fiordos durante varias horas. Cruce obligatorio para seguir al sur.",dorm:"Hornopirén",mov:"Ferry",hl:"Navegación por fiordos",tip:"Reserva el ferry con anticipación: en temporada alta se llena."},
+ {d:"4–5",t:"bosque",n:"Pumalín + Chaitén",s:"Alerces milenarios",x:82,y:122,r:1,desc:"Senderos entre alerces de miles de años, cascadas y vistas al volcán Chaitén. El pueblo renació tras la erupción de 2008.",dorm:"Camping / Chaitén",mov:"Bus / dedo",hl:"Sendero Alerces",tip:"Ropa impermeable siempre a mano; la señal celular es intermitente."},
+ {d:"6–7",t:"bosque",n:"Futaleufú",s:"El río esmeralda",x:195,y:152,r:0,desc:"Desvío hacia la cordillera para uno de los ríos más famosos del mundo para rafting. Aunque no lo hagan, el paisaje justifica el viaje.",dorm:"Futaleufú",mov:"Desvío en bus",hl:"Rafting clase IV–V",tip:"Confirma horarios de bus de regreso a la Austral antes de ir."},
+ {d:"8",t:"fiordo",n:"La Junta + Puyuhuapi",s:"Pueblo de colonos",x:108,y:200,r:1,desc:"Parada en La Junta y llegada a Puyuhuapi, fundado por colonos alemanes en 1935, a orillas de un fiordo.",dorm:"Puyuhuapi",mov:"Bus",hl:"Fiordo de Puyuhuapi",tip:"Buen momento para descansar las piernas antes de Queulat."},
+ {d:"9–10",t:"fiordo",n:"Parque Queulat",s:"Ventisquero Colgante",x:125,y:242,r:1,desc:"El glaciar colgante con su cascada sobre una laguna turquesa. Trek moderado de unos 6 km ida y vuelta, y un segundo día para el Bosque Encantado.",dorm:"Puyuhuapi",mov:"Dedo / transfer",hl:"Glaciar colgante",tip:"Reserva la entrada en la web de CONAF antes de ir."},
+ {d:"11–12",t:"aysen",n:"Coyhaique",s:"La base de Aysén",x:165,y:300,r:0,desc:"La ciudad más grande de la región: cajeros, supermercados, lavandería y buena comida patagónica. Dos días para recargar.",dorm:"Coyhaique",mov:"Bus",hl:"Recarga total",tip:"Último gran punto de abastecimiento antes del sur."},
+ {d:"13–14",t:"aysen",n:"Villa Cerro Castillo",s:"Torres de basalto",x:178,y:346,r:0,desc:"Trekking al Mirador Laguna Cerro Castillo: torres de roca sobre una laguna turquesa. Exigente, de día completo.",dorm:"Camping",mov:"Bus",hl:"Laguna Cerro Castillo",tip:"Sal temprano y lleva agua suficiente para todo el día."},
+ {d:"15–16",t:"lago",n:"Puerto Río Tranquilo",s:"Catedrales de Mármol",x:118,y:396,r:1,desc:"Cuevas de mármol en el Lago General Carrera, en kayak o bote. Segundo día para el Glaciar Exploradores.",dorm:"Río Tranquilo",mov:"Bus / dedo",hl:"Mármol + glaciar",tip:"Las salidas al lago suelen ser mejores temprano, con menos viento."},
+ {d:"17–18",t:"estepa",n:"Cochrane + P. Patagonia",s:"Estepa y huemules",x:170,y:446,r:0,desc:"Valle Chacabuco con guanacos, y senderos donde con suerte se ve el huemul. Estepa abierta y cielos enormes.",dorm:"Cochrane / camping",mov:"Bus",hl:"Fauna salvaje",tip:"Revisa los horarios de bus a Tortel con tiempo."},
+ {d:"19–20",t:"fin",n:"Caleta Tortel",s:"El pueblo sin calles",x:85,y:492,r:1,desc:"Kilómetros de pasarelas de ciprés sobre la desembocadura del río Baker. El cierre perfecto, sin llegar al final de la ruta.",dorm:"Tortel",mov:"Bus de regreso",hl:"Pasarelas de ciprés",tip:"Regreso: Tortel → Cochrane → Coyhaique → vuelo desde Balmaceda."}
+];
+const NS='http://www.w3.org/2000/svg';
+const $=id=>document.getElementById(id);
+let done=new Set();try{done=new Set(JSON.parse(localStorage.getItem('ca-done')||'[]'))}catch(e){}
+const save=()=>{try{localStorage.setItem('ca-done',JSON.stringify([...done]))}catch(e){}};
+const seg=i=>{const a=S[i-1],b=S[i],m=(a.y+b.y)/2;return ` C ${a.x} ${m}, ${b.x} ${m}, ${b.x} ${b.y}`};
+let p=`M${S[0].x} ${S[0].y}`;const lens=[0];
+const tmp=document.createElementNS(NS,'path');$('svg').appendChild(tmp);
+for(let i=1;i<S.length;i++){p+=seg(i);tmp.setAttribute('d',p);lens.push(tmp.getTotalLength())}
+tmp.remove();
+$('base').setAttribute('d',p);const trail=$('trail');trail.setAttribute('d',p);
+const L=lens[lens.length-1];trail.style.strokeDasharray=L;trail.style.strokeDashoffset=L;
+const mt='<svg class="mt" viewBox="0 0 200 80" fill="#fff"><path d="M0 80 L38 34 L56 52 L92 8 L120 44 L138 30 L176 70 L200 56 L200 80Z"/></svg>';
+const cards=[],dots=[],pins=[];
+S.forEach((s,i)=>{
+  const t=T[s.t];
+  const c=document.createElement('article');c.className='card'+(done.has(i)?' done':'');
+  c.style.setProperty('--tc',t.c);c.style.setProperty('--tl',t.l);
+  c.innerHTML=`<div class="hero">${mt}
+    <div class="hrow"><span class="pill">${t.n}</span><span class="chk">✓ Visitado</span></div>
+    <div class="dia">Día ${s.d}</div><h2>${s.n}</h2><p class="sub">${s.s}</p></div>
+    <div class="body"><p class="desc">${s.desc}</p>
+    <div class="facts"><div class="fact"><span>Dormir</span><b>${s.dorm}</b></div><div class="fact"><span>Moverse</span><b>${s.mov}</b></div><div class="fact"><span>Imperdible</span><b>${s.hl}</b></div></div>
+    <div class="tip"><strong>Consejo</strong>${s.tip}</div>
+    <button class="dbtn">${done.has(i)?'✓ Visitado':'Marcar como visitado'}</button></div>`;
+  c.querySelector('.dbtn').onclick=e=>{done.has(i)?done.delete(i):done.add(i);save();c.classList.toggle('done',done.has(i));e.target.textContent=done.has(i)?'✓ Visitado':'Marcar como visitado';paint()};
+  $('track').appendChild(c);cards.push(c);
+  const d=document.createElement('i');$('dots').appendChild(d);dots.push(d);
+  const g=document.createElementNS(NS,'g');g.setAttribute('class','pin');
+  g.innerHTML=`<circle class="o" cx="${s.x}" cy="${s.y}" r="9"/><text class="n" x="${s.x}" y="${s.y+3}" text-anchor="middle">${i+1}</text><text class="lbl" x="${s.r?s.x+16:s.x-16}" y="${s.y+3.5}" text-anchor="${s.r?'start':'end'}">${s.n}</text>`;
+  g.onclick=()=>goTo(i);$('pins').appendChild(g);pins.push(g);
+});
+Object.values(T).forEach(t=>{const e=document.createElement('span');e.innerHTML=`<i style="background:${t.c}"></i>${t.n}`;$('legend').appendChild(e)});
+let cur=0;
+function paint(){
+  const s=S[cur],t=T[s.t];
+  document.documentElement.style.setProperty('--c',t.c);
+  $('pn').textContent=String(cur+1).padStart(2,'0');$('pd').textContent='Día '+s.d;
+  dots.forEach((d,j)=>{d.className=j===cur?'on':(done.has(j)?'dn':'')});
+  pins.forEach((g,j)=>{const o=g.querySelector('.o'),tc=T[S[j].t].c,on=j===cur,past=j<cur||done.has(j);
+    g.classList.toggle('on',on);o.setAttribute('r',on?12:9);
+    o.setAttribute('fill',on||past?tc:'#FFFDF9');o.setAttribute('stroke',tc);
+    o.setAttribute('fill-opacity',on?1:past?.55:1);
+    g.querySelector('.n').setAttribute('fill',on||past?'#fff':tc)});
+  trail.style.stroke=t.c;trail.style.strokeDashoffset=L-lens[cur];
+}
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){cur=cards.indexOf(e.target);paint()}})},{root:$('track'),threshold:.6});
+cards.forEach(c=>io.observe(c));
+function show(v){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('on',x.id===v));document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.v===v))}
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>show(b.dataset.v));
+function goTo(i){show('routev');requestAnimationFrame(()=>{cards[i].scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'});cur=i;paint()})}
+paint();
+</script>
+</body>
+</html>
