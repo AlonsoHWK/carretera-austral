@@ -14,13 +14,14 @@ const TYPES = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/cs
 
 // Overrides simulate deploys without touching the working tree.
 const overrides = new Map();
+let cacheControl = 'no-cache';
 const server = http.createServer((req, res) => {
   const url = new URL(req.url, BASE);
   if (!url.pathname.startsWith('/carretera-austral/')) { res.writeHead(404); return res.end(); }
   let rel = decodeURIComponent(url.pathname.slice('/carretera-austral/'.length)) || 'index.html';
   const body = overrides.has(rel) ? overrides.get(rel) : (fs.existsSync(path.join(ROOT, rel)) ? fs.readFileSync(path.join(ROOT, rel)) : null);
   if (body === null) { res.writeHead(404); return res.end(); }
-  res.writeHead(200, { 'Content-Type': TYPES[path.extname(rel)] || 'application/octet-stream', 'Cache-Control': 'no-cache' });
+  res.writeHead(200, { 'Content-Type': TYPES[path.extname(rel)] || 'application/octet-stream', 'Cache-Control': rel === 'sw.js' ? 'no-cache' : cacheControl });
   res.end(body);
 });
 
@@ -395,6 +396,31 @@ async function featureSuite(browser) {
     const caches9 = await page.evaluate(() => caches.keys());
     check('update activates and drops the old cache', caches9.includes('ca-shell-9.9.9') && caches9.filter((n) => n.startsWith('ca-shell-')).length === 1, caches9.join(','));
     overrides.delete('sw.js');
+    await context.close();
+  }
+
+  // Cloudflare tells browsers to keep JS for 4 hours: an update must still precache the new files.
+  {
+    cacheControl = 'max-age=14400';
+    const { context, page } = await newApp(browser, viewport);
+    const map = fs.readFileSync(path.join(ROOT, 'js/map.js'), 'utf8');
+    const sw = fs.readFileSync(path.join(ROOT, 'sw.js'), 'utf8');
+    overrides.set('js/map.js', `${map}\n// deployed-marker\n`);
+    overrides.set('sw.js', sw.replace(/const VERSION = '[^']+'/, "const VERSION = '9.9.8'"));
+    await page.reload();
+    await page.waitForSelector('.card');
+    await page.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update());
+    await page.waitForSelector('#toast button', { timeout: 15000 });
+    await Promise.all([page.waitForEvent('load'), page.locator('#toast button').click()]);
+    await page.waitForSelector('.card');
+    const cached = await page.evaluate(async () => {
+      const shell = await caches.open('ca-shell-9.9.8');
+      return (await (await shell.match('js/map.js')).text()).includes('deployed-marker');
+    });
+    check('update precaches new files despite a long browser cache', cached);
+    overrides.delete('js/map.js');
+    overrides.delete('sw.js');
+    cacheControl = 'no-cache';
     await context.close();
   }
 

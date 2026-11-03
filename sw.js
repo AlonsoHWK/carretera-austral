@@ -1,6 +1,6 @@
 // Bump VERSION whenever any file in SHELL changes: it is what triggers the update toast.
 // data/itinerary.json lives in its own cache and is updated by js/data.js, not by this version.
-const VERSION = '1.0.1';
+const VERSION = '1.0.2';
 const SHELL_PREFIX = 'ca-shell-';
 const SHELL_CACHE = SHELL_PREFIX + VERSION;
 const DATA_CACHE = 'ca-data-v1';
@@ -44,7 +44,9 @@ const SHELL = [
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {
     const shell = await caches.open(SHELL_CACHE);
-    await shell.addAll(SHELL);
+    // Bypass the HTTP cache: Cloudflare lets browsers keep JS and CSS for hours, and a stale
+    // file stored here would be served until the next VERSION.
+    await shell.addAll(SHELL.map((path) => new Request(path, { cache: 'reload' })));
     // Never overwrite the data copy here: it may be newer than the deployed app version.
     const data = await caches.open(DATA_CACHE);
     if (!(await data.match(DATA_PATH))) await storeIfParseable(data, await fetch(DATA_PATH, { cache: 'no-store' }));
