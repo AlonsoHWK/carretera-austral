@@ -1,0 +1,399 @@
+{
+  "schemaVersion": 1,
+  "dataVersion": "2026-11-03",
+  "trip": {
+    "title": "Carretera Austral",
+    "kicker": "Ruta · 20 días + vuelo",
+    "totalDays": 20,
+    "flightDay": 21
+  },
+  "segments": {
+    "bosque": { "name": "Bosque lluvioso", "color": "#2C9A58", "deep": "#007C3F", "tint": "#E3F3E9", "hero": "#007C3F", "heroText": "#FFFFFF" },
+    "fiordo": { "name": "Fiordos", "color": "#0E9C96", "deep": "#007975", "tint": "#DDF3F1", "hero": "#007975", "heroText": "#FFFFFF" },
+    "aysen": { "name": "Corazón de Aysén", "color": "#3567D6", "deep": "#3162D1", "tint": "#E3EAFB", "hero": "#3162D1", "heroText": "#FFFFFF" },
+    "lago": { "name": "Lago General Carrera", "color": "#1189CF", "deep": "#006FAC", "tint": "#DCEFFA", "hero": "#006FAC", "heroText": "#FFFFFF" },
+    "estepa": { "name": "Estepa", "color": "#DB8A1F", "deep": "#9B5D00", "tint": "#FBEFDC", "hero": "#DB8A1F", "heroText": "#1D2A33" },
+    "fin": { "name": "Fin del viaje", "color": "#D2533A", "deep": "#BB3E25", "tint": "#FBE6E0", "hero": "#BB3E25", "heroText": "#FFFFFF" }
+  },
+  "stops": [
+    {
+      "id": "puerto-montt",
+      "days": "1",
+      "segment": "bosque",
+      "name": "Puerto Montt",
+      "subtitle": "El punto de partida",
+      "description": "Abastecerse, organizar la mochila y tomar el bus a Hornopirén. La ruta cruza el estuario de Reloncaví en el ferry Caleta La Arena–Caleta Puelche, de unos 30 minutos y sin reserva, y sigue 60 km hasta Hornopirén.",
+      "sleep": "Hornopirén",
+      "transport": "Bus + ferry corto (Kemel Bus; unas 4 h en total)",
+      "highlight": "Abastecimiento",
+      "tips": [
+        "Saca efectivo antes de salir: las guías no coinciden sobre qué pueblos del primer tramo tienen cajero.",
+        "Kemel Bus publica salidas a Hornopirén a las 8:00 (lunes a sábado) y 14:30 (todos los días)."
+      ],
+      "lat": -41.472,
+      "lng": -72.94,
+      "links": [
+        { "label": "Kemel Bus: horarios", "url": "https://www.kemelbus.cl/carretera-austral-horarios.html" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.0"],
+      "seasonal": [
+        { "path": "tips.1", "note": "Horarios de Kemel Bus Puerto Montt–Hornopirén; otra guía publica horarios distintos." }
+      ],
+      "via": [[-41.69, -72.643]]
+    },
+    {
+      "id": "hornopiren",
+      "days": "2–3",
+      "segment": "bosque",
+      "name": "Hornopirén",
+      "subtitle": "Fiordos y primer gran cruce",
+      "description": "Trekking en el Parque Nacional Hornopirén, de ingreso gratuito y con registro ante guardaparques: desde el pueblo son unos 10 km hasta el río León y luego 6,8 km de sendero, unas 4 h. Después viene la Ruta Bimodal hacia Caleta Gonzalo: dos ferries con un tramo de camino entre ambos.",
+      "sleep": "Hornopirén",
+      "transport": "Ruta Bimodal: ferry a Leptepu (3 h 30), camino a Fiordo Largo (15 min), ferry a Caleta Gonzalo (40 min)",
+      "highlight": "Navegación por fiordos",
+      "tips": [
+        "Reserva la Ruta Bimodal con anticipación: los cupos son limitados. La opera Naviera Somarco, con salidas desde Hornopirén a las 10:00 y 18:00.",
+        "Si van a pie, Kemel Bus vende Puerto Montt–Chaitén por Ruta Bimodal. Confirma que puedes subir en Hornopirén y que el bus cubre el tramo entre ferries.",
+        "Ingreso al sendero Chaqueihua–lago Pinto Concha: de 10:00 a 16:30 si vuelves el mismo día."
+      ],
+      "lat": -41.966,
+      "lng": -72.471,
+      "links": [
+        { "label": "CONAF: P. N. Hornopirén", "url": "https://www.conaf.cl/parque_nacionales/parque-nacional-hornopiren/" },
+        { "label": "Kemel Bus: horarios", "url": "https://www.kemelbus.cl/carretera-austral-horarios.html" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.1"],
+      "seasonal": [
+        { "path": "transport", "note": "Ruta Bimodal: operación y duración. CONAF publica 10:30 como salida; otra fuente, 10:00 y 18:00." },
+        { "path": "tips.0", "note": "Salidas de Naviera Somarco. En enero se suma un zarpe comercial no subsidiado." },
+        { "path": "tips.1", "note": "Horario de Kemel Bus por Ruta Bimodal (el operador publica 6:20 desde Puerto Montt; otra fuente, 7:00)." },
+        { "path": "tips.2", "note": "Horario de ingreso al sendero." }
+      ]
+    },
+    {
+      "id": "pumalin-chaiten",
+      "days": "4–5",
+      "segment": "bosque",
+      "name": "Pumalín + Chaitén",
+      "subtitle": "Bosque de alerces",
+      "description": "El Parque Nacional Pumalín Douglas Tompkins, administrado por CONAF, tiene senderos entre alerces y cascadas, además del ascenso al volcán Chaitén. Chaitén se reconstruyó tras la erupción de mayo de 2008, que destruyó gran parte del pueblo.",
+      "sleep": "Camping / Chaitén",
+      "transport": "Bus / dedo (de Caleta Gonzalo a Chaitén son 60 km)",
+      "highlight": "Sendero Los Alerces (baja dificultad, 40 min)",
+      "tips": [
+        "No hay señal ni electricidad en el parque y los campings no se reservan: se ocupan por orden de llegada.",
+        "Según CONAF, solo se puede ingresar a los senderos hasta las 14:00.",
+        "Volcán Chaitén: unas 2,5 h ida y vuelta, dificultad media-alta. Pregunta por su estado en CONAF antes de ir.",
+        "Ropa impermeable siempre a mano, incluso en verano."
+      ],
+      "lat": -42.917,
+      "lng": -72.708,
+      "links": [
+        { "label": "CONAF: P. N. Pumalín", "url": "https://www.conaf.cl/parque_nacionales/parque-nacional-pumalin-douglas-tompkins/" },
+        { "label": "Ruta de los Parques: Pumalín", "url": "https://www.rutadelosparques.org/en/?p=67" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.2"],
+      "seasonal": [
+        { "path": "tips.0", "note": "Apertura de campings: una guía indica 15 de diciembre y 2 de enero para el sector volcán." },
+        { "path": "tips.1", "note": "Horario de ingreso a senderos." },
+        { "path": "tips.2", "note": "Estado del sendero al volcán Chaitén." }
+      ],
+      "via": [[-42.56, -72.604]]
+    },
+    {
+      "id": "futaleufu",
+      "days": "6–7",
+      "segment": "bosque",
+      "name": "Futaleufú",
+      "subtitle": "El río esmeralda",
+      "description": "Desvío hacia la cordillera por un río famoso para el rafting. El tramo Puente a Puente, el más popular, no exige experiencia previa y tiene rápidos clase III y IV; otros tramos llegan a clase V+ y son para expertos.",
+      "sleep": "Futaleufú",
+      "transport": "Bus Chaitén (salidas diarias a las 12:00 y 16:30)",
+      "highlight": "Rafting, clase III a V+ según tramo",
+      "tips": [
+        "Para seguir al sur hay que volver a Villa Santa Lucía y conectar allí. Bus Chaitén sale de Futaleufú a las 6:00 y 11:00; lo escaso es la conexión hacia La Junta.",
+        "Las guías no coinciden sobre si hay cajero: lleva efectivo."
+      ],
+      "lat": -43.186,
+      "lng": -71.867,
+      "links": [
+        { "label": "Ruta de los Parques", "url": "https://www.rutadelosparques.org/en/" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.1"],
+      "seasonal": [
+        { "path": "transport", "note": "Horarios de Bus Chaitén, sin fecha de vigencia publicada." },
+        { "path": "tips.0", "note": "Conexión en Villa Santa Lucía hacia La Junta." }
+      ],
+      "mapLabel": "Futaleufú",
+      "via": [[-43.413, -72.366]]
+    },
+    {
+      "id": "la-junta-puyuhuapi",
+      "days": "8",
+      "segment": "fiordo",
+      "name": "La Junta + Puyuhuapi",
+      "subtitle": "Pueblo de colonos",
+      "description": "Parada en La Junta y llegada a Puyuhuapi, fundado en 1935 por colonos de habla alemana de los Sudetes, a orillas de un fiordo.",
+      "sleep": "Puyuhuapi",
+      "transport": "Buses Becker (miércoles y domingo) o TerraAustral (lunes, miércoles y viernes)",
+      "highlight": "Fiordo de Puyuhuapi",
+      "tips": [
+        "Este tramo no sale todos los días: el día 8 cae el mismo día de la semana en que empiezan el viaje.",
+        "Buses Becker conecta con Futaleufú en Santa Lucía a eso de las 11:30. Confirma la conexión al reservar.",
+        "Buen momento para descansar las piernas antes de Queulat."
+      ],
+      "lat": -44.325,
+      "lng": -72.558,
+      "links": [
+        { "label": "Ruta de los Parques: Puyuhuapi", "url": "https://www.rutadelosparques.org/en/puyuhuapi/" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.1"],
+      "seasonal": [
+        { "path": "transport", "note": "Días de Buses Becker y TerraAustral, sin fecha de vigencia publicada." },
+        { "path": "tips.1", "note": "Conexión Futaleufú–Santa Lucía–La Junta." }
+      ],
+      "mapLabel": "Puyuhuapi",
+      "via": [[-43.413, -72.366], [-43.972, -72.405]]
+    },
+    {
+      "id": "queulat",
+      "days": "9–10",
+      "segment": "fiordo",
+      "name": "Parque Queulat",
+      "subtitle": "Ventisquero Colgante",
+      "description": "El ventisquero es una masa de hielo suspendida entre dos cerros, con una cascada que cae a la laguna del mismo nombre. El estacionamiento del sector está a unos 20 km al sur de Puyuhuapi, y el segundo día puede ir a otros senderos del parque.",
+      "sleep": "Puyuhuapi",
+      "transport": "Dedo / transfer (no encontramos bus hasta la entrada)",
+      "highlight": "Ventisquero Colgante",
+      "tips": [
+        "Compra la entrada en Pases Parques antes de ir.",
+        "El camping del sector Ventisquero está cerrado desde el 17 de abril de 2026 hasta nuevo aviso: duerman en Puyuhuapi.",
+        "Las distancias al mirador no coinciden: entre 3,4 y 6,4 km ida y vuelta, 2 a 3 h. CONAF lista el sendero Morrena con 3,2 km y 2 h.",
+        "Para el segundo día, CONAF lista Laguna Témpanos (600 m) y Laguna Los Pumas (5,2 km, 5 h).",
+        "Bosque Encantado (sector Portezuelo, a unos 50 km de Puyuhuapi) no aparece en la lista de CONAF y un blog lo reporta cerrado. Pregunta antes de ir."
+      ],
+      "lat": -44.437,
+      "lng": -72.504,
+      "links": [
+        { "label": "CONAF: P. N. Queulat", "url": "https://www.conaf.cl/parque_nacionales/parque-nacional-queulat/" },
+        { "label": "Pases Parques", "url": "https://www.pasesparques.cl/" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["transport", "tips.2", "tips.4"],
+      "seasonal": [
+        { "path": "tips.0", "note": "Horarios y condiciones de ingreso, publicados en Pases Parques." },
+        { "path": "tips.1", "note": "Reapertura del camping del Ventisquero." },
+        { "path": "tips.3", "note": "Laguna Los Pumas cierra de junio a septiembre." },
+        { "path": "tips.4", "note": "Estado de Bosque Encantado." }
+      ],
+      "mapLabel": "Queulat"
+    },
+    {
+      "id": "coyhaique",
+      "days": "11",
+      "segment": "aysen",
+      "name": "Coyhaique",
+      "subtitle": "La base de Aysén",
+      "description": "La ciudad más grande de la región: cajeros, supermercados y servicios. Hay un solo día de ida, porque pasan de nuevo por aquí al volver: dejen para entonces lo que no sea urgente.",
+      "sleep": "Coyhaique",
+      "transport": "Buses Becker desde Puyuhuapi (miércoles y domingo)",
+      "highlight": "Recarga rápida",
+      "tips": [
+        "Última ciudad grande antes del sur: compra aquí lo que necesiten para los próximos 9 días.",
+        "Buses al sur salen temprano: Buses Sao Paulo a las 8:00 (martes, jueves, sábado y domingo)."
+      ],
+      "lat": -45.571,
+      "lng": -72.068,
+      "links": [
+        { "label": "Ruta de los Parques", "url": "https://www.rutadelosparques.org/en/" }
+      ],
+      "lastVerified": "2026-11-03",
+      "seasonal": [
+        { "path": "transport", "note": "Días de Buses Becker Puyuhuapi–Coyhaique, sin fecha de vigencia publicada." },
+        { "path": "tips.1", "note": "Horarios Coyhaique–sur. Don Carlos anuncia frecuencias extra en temporada alta." }
+      ],
+      "via": [[-45.173, -72.147]]
+    },
+    {
+      "id": "cerro-castillo",
+      "days": "12–13",
+      "segment": "aysen",
+      "name": "Villa Cerro Castillo",
+      "subtitle": "Torres de basalto",
+      "description": "El Sendero Mirador Laguna Cerro Castillo lleva a una laguna al pie de las torres de roca: unos 14 km y 8 h en total. CONAF lo informa hoy como cerrado por resolución y habilitado solo con guía certificado.",
+      "sleep": "Villa Cerro Castillo",
+      "transport": "Bus (Sao Paulo, Don Carlos o Interlagos)",
+      "highlight": "Laguna Cerro Castillo, con guía",
+      "tips": [
+        "Contrata guía certificado con anticipación: sin guía no se puede subir a la laguna.",
+        "Regístrate en la administración del parque (laguna Chiguay, km 57 de la Ruta 7 Sur) antes de iniciar cualquier sendero.",
+        "El camping Laguna Chiguay figura como no operativo: busca alojamiento en la villa.",
+        "Sal temprano y lleva agua para todo el día. Las áreas se cierran con mal tiempo."
+      ],
+      "lat": -46.123,
+      "lng": -72.154,
+      "links": [
+        { "label": "CONAF: P. N. Cerro Castillo", "url": "https://www.conaf.cl/parque_nacionales/parque-nacional-cerro-castillo/" },
+        { "label": "Chile Travel: Cerro Castillo", "url": "https://chile.travel/atractivos/cerro-castillo/" }
+      ],
+      "lastVerified": "2026-11-03",
+      "seasonal": [
+        { "path": "description", "note": "Condición del sendero a la laguna; cierra de mayo a septiembre." },
+        { "path": "transport", "note": "Interlagos modifica horarios por obras en la Ruta 7 hasta el 31 de diciembre de 2026." },
+        { "path": "tips.2", "note": "Estado del camping Laguna Chiguay." }
+      ],
+      "mapLabel": "Cerro Castillo"
+    },
+    {
+      "id": "rio-tranquilo",
+      "days": "14–15",
+      "segment": "lago",
+      "name": "Puerto Río Tranquilo",
+      "subtitle": "Capillas de Mármol",
+      "description": "Las Capillas de Mármol, Santuario de la Naturaleza en el Lago General Carrera, se recorren solo en bote o kayak. El segundo día, el Glaciar Exploradores queda a unos 52 km, 1 h 20 en vehículo.",
+      "sleep": "Río Tranquilo",
+      "transport": "Bus / dedo",
+      "highlight": "Mármol + glaciar",
+      "tips": [
+        "Puedes contratar las salidas en el puerto o reservarlas antes.",
+        "Las excursiones al Glaciar Exploradores incluyen guía. No confirmamos si entrar sin guía está permitido.",
+        "Las salidas al lago dependen del viento. Suelen recomendarse temprano.",
+        "No encontramos cajero confirmado: lleva efectivo desde Coyhaique."
+      ],
+      "lat": -46.624,
+      "lng": -72.676,
+      "links": [
+        { "label": "Chile Travel: Glaciares", "url": "https://www.chile.travel/itinerarios/glaciares-y-trekking-en-lo-mas-austral-del-mundo/" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.1", "tips.2", "tips.3"],
+      "seasonal": [
+        { "path": "transport", "note": "Ruta 7 Tour es diario solo en enero y febrero; Sao Paulo y Don Carlos pasan algunos días." }
+      ],
+      "mapLabel": "Río Tranquilo"
+    },
+    {
+      "id": "cochrane-patagonia",
+      "days": "16–17",
+      "segment": "estepa",
+      "name": "Cochrane + P. Patagonia",
+      "subtitle": "Estepa y huemules",
+      "description": "El sector Tamango, a unos 4 km de la plaza de Cochrane, es uno de los mejores lugares para ver huemules. El Valle Chacabuco, a unos 27 km, es estepa abierta con guanacos y cielos enormes, sin señal de celular.",
+      "sleep": "Cochrane / camping",
+      "transport": "Bus (Sao Paulo o Don Carlos desde Río Tranquilo)",
+      "highlight": "Huemules en Tamango",
+      "tips": [
+        "Si tienen un solo día, Tamango es lo más accesible a pie. No encontramos transporte público a Valle Chacabuco.",
+        "Último cajero seguro del viaje: BancoEstado en Cochrane. Saca aquí para Tortel.",
+        "Los campings de Valle Chacabuco abren de octubre a abril y no tienen reserva. Las entradas se gestionan en Pases Parques.",
+        "Compra el bus a Tortel con tiempo: no hay salidas los lunes."
+      ],
+      "lat": -47.255,
+      "lng": -72.572,
+      "links": [
+        { "label": "Ruta de los Parques: P. N. Patagonia", "url": "https://www.rutadelosparques.org/en/parque-nacional-patagonia/" },
+        { "label": "Ruta de los Parques: Cochrane", "url": "https://www.rutadelosparques.org/en/cochrane/" },
+        { "label": "Pases Parques", "url": "https://www.pasesparques.cl/" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.0"],
+      "seasonal": [
+        { "path": "transport", "note": "Días de Sao Paulo y Don Carlos hacia Cochrane." },
+        { "path": "tips.2", "note": "Temporada de campings en Valle Chacabuco." },
+        { "path": "tips.3", "note": "Días de buses Cochrane–Tortel." }
+      ],
+      "mapLabel": "Cochrane",
+      "via": [[-47.015, -72.827]]
+    },
+    {
+      "id": "tortel",
+      "days": "18–20",
+      "segment": "fin",
+      "name": "Caleta Tortel",
+      "subtitle": "El pueblo sin calles",
+      "description": "Kilómetros de pasarelas de ciprés de las Guaitecas, cerca de la desembocadura del río Baker. El cierre del viaje, sin llegar al final de la ruta. Tienen el día 18 y la mañana del 19 antes de empezar el regreso.",
+      "sleep": "Tortel (18), Cochrane (19), Coyhaique (20)",
+      "transport": "Bus Cochrane–Tortel: Aldea (9:00 mar/jue/sáb), Los Glaciares (11:00 dom/mié, 14:00 vie)",
+      "highlight": "Pasarelas de ciprés",
+      "tips": [
+        "Sin bus los lunes entre Cochrane y Tortel, en ningún sentido.",
+        "No encontramos cajero en Tortel: lleva efectivo desde Cochrane.",
+        "Los Glaciares es un servicio subsidiado que da prioridad a residentes: reserva y confirma tu cupo."
+      ],
+      "lat": -47.804,
+      "lng": -73.537,
+      "links": [
+        { "label": "Chile Travel: Caleta Tortel", "url": "https://chile.travel/blog/no-tiene-una-sola-calle-asi-es-uno-de-los-pueblos-mas-magicos-de-chile/" },
+        { "label": "LATAM: vuelos a Balmaceda", "url": "https://www.latamairlines.com/cl/es/destinos/vuelos-a-balmaceda" }
+      ],
+      "lastVerified": "2026-11-03",
+      "unverified": ["tips.1"],
+      "seasonal": [
+        { "path": "transport", "note": "Horarios de Los Glaciares vigentes hasta el 31 de diciembre de 2026; Aldea sin fecha de vigencia." },
+        { "path": "tips.0", "note": "Restricción de los lunes, según los horarios de Aldea y Los Glaciares." },
+        { "path": "returnTrip.steps.0", "note": "Salidas Tortel–Cochrane." },
+        { "path": "returnTrip.steps.1", "note": "Salidas Cochrane–Coyhaique; los días de Don Carlos son nuestra lectura de una tabla ambigua." },
+        { "path": "returnTrip.steps.2", "note": "Horario del vuelo y traslado a Balmaceda." }
+      ],
+      "returnTrip": {
+        "title": "Regreso",
+        "steps": [
+          { "day": "Día 19, tarde", "text": "Bus Tortel → Cochrane, unas 3 h: 15:00 (dom/mié), 16:00 (mar/jue/sáb), 17:30 (vie). Noche en Cochrane." },
+          { "day": "Día 20", "text": "Bus Cochrane → Coyhaique, unas 7 h: Sao Paulo 6:30 (lun/mié/vie/dom), Don Carlos 7:00 (mar/jue/vie/sáb). Llegan a media tarde; noche en Coyhaique." },
+          { "day": "Día 21, mañana", "text": "Traslado al aeropuerto de Balmaceda, unos 55 km desde Coyhaique, y vuelo. Reserva el traslado el día anterior." }
+        ],
+        "note": "Volar el mismo día 20 solo sería posible con un vuelo muy tarde, que no pudimos confirmar."
+      },
+      "mapLabel": "Caleta Tortel"
+    }
+  ],
+  "info": {
+    "dateNotes": {
+      "title": "Revisar al definir fechas",
+      "items": [
+        "No hay bus Cochrane–Tortel los lunes, en ningún sentido. Los días 18 y 19 no pueden caer en lunes: no empiecen un jueves ni un viernes, salvo que muevan un día.",
+        "Otros tramos tampoco son diarios: Buses Becker pasa por Santa Lucía y Puyuhuapi solo miércoles y domingo (días 8 y 11). Según los horarios publicados, empezar un domingo calza con todos los buses. Por confirmar.",
+        "Los datos de esta guía asumen temporada alta (diciembre a marzo). Lo que depende de la fecha lleva la marca «Según temporada»."
+      ]
+    },
+    "dateChecks": [
+      { "days": [18, 19], "weekday": 1, "message": "Con esta fecha, el día {day} cae lunes y no hay bus entre Cochrane y Tortel." }
+    ],
+    "emergency": [
+      { "number": "131", "label": "Ambulancia (SAMU)" },
+      { "number": "132", "label": "Bomberos" },
+      { "number": "133", "label": "Carabineros" },
+      { "number": "134", "label": "Policía de Investigaciones" },
+      { "number": "130", "label": "CONAF: incendios forestales" },
+      { "number": "136", "label": "Socorro Andino: emergencias de montaña", "unverified": true },
+      { "number": "137", "label": "Armada: emergencias marítimas" }
+    ],
+    "packing": [
+      { "id": "shell", "text": "Chaqueta y pantalón impermeables" },
+      { "id": "layers", "text": "Capas de abrigo y cortaviento" },
+      { "id": "boots", "text": "Zapatos de trekking ya usados" },
+      { "id": "sun", "text": "Bloqueador, gorro y lentes de sol" },
+      { "id": "water", "text": "Botella y filtro o pastillas para agua" },
+      { "id": "cash", "text": "Efectivo en pesos chilenos" },
+      { "id": "camp", "text": "Carpa, saco y aislante" },
+      { "id": "light", "text": "Linterna frontal" },
+      { "id": "aid", "text": "Botiquín y medicamentos personales" },
+      { "id": "power", "text": "Batería externa y cable" },
+      { "id": "maps", "text": "Mapas sin conexión descargados" },
+      { "id": "docs", "text": "Documentos y seguro de viaje" }
+    ],
+    "safety": [
+      { "title": "Clima", "text": "Cambia rápido: puede haber lluvia y viento fuerte incluso en verano. CONAF cierra áreas o senderos con mal tiempo; consulta a los guardaparques antes de subir." },
+      { "title": "Sin señal", "text": "La mayoría de los parques no tiene señal de celular. Regístrate al entrar y avisa a alguien tu ruta." },
+      { "title": "Agua", "text": "Lleva agua suficiente y filtra o hierve la que saques de ríos o lagos." },
+      { "title": "Hantavirus", "text": "CONAF advierte del riesgo: evita el contacto con roedores, guarda la comida cerrada y no duermas en refugios sin ventilar." },
+      { "title": "Influenza aviar", "text": "Chile tiene un brote activo según CONAF: no toques aves ni animales silvestres muertos o enfermos." },
+      { "title": "Dedo", "text": "Sugerencias prácticas: espera donde el auto pueda parar sin riesgo, ten paciencia, no presiones por un cupo y deja un plan B de bus. Si algo no te da confianza, no subas." }
+    ]
+  }
+}
