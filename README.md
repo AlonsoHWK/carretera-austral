@@ -2,11 +2,11 @@
 
 Guía personal para recorrer la Carretera Austral de Puerto Montt a Caleta Tortel: 11 paradas, 20 días y vuelo de regreso la mañana del día 21. Se instala en el teléfono y funciona sin señal.
 
-**App:** https://alonsohwk.github.io/carretera-austral/
+**App:** https://hawken.cl/carretera-austral/
 
 ## Instalar en el teléfono
 
-Abre la app una vez **con señal**, en el navegador que se indica. Con esa primera visita queda todo guardado para usar sin conexión.
+Abre la app una vez **con señal**, siempre con `https://`, en el navegador que se indica. Con esa primera visita queda todo guardado para usar sin conexión.
 
 ### Android (Chrome)
 

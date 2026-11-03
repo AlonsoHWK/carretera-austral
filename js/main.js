@@ -10,6 +10,11 @@ import { registerServiceWorker, showToast } from './sw-register.js';
 
 const $ = (id) => document.getElementById(id);
 
+// The custom domain also answers on plain http, where service workers (and so offline mode) are unavailable.
+if (location.protocol === 'http:' && !['localhost', '127.0.0.1'].includes(location.hostname)) {
+  location.replace(location.href.replace('http:', 'https:'));
+}
+
 function showFatal(errors) {
   const status = h('p', { 'aria-live': 'polite' });
   const retry = h('button', {
