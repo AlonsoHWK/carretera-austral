@@ -39,8 +39,7 @@
       "unverified": ["tips.0"],
       "seasonal": [
         { "path": "tips.1", "note": "Horarios de Kemel Bus Puerto Montt–Hornopirén; otra guía publica horarios distintos." }
-      ],
-      "via": [[-41.69, -72.643]]
+      ]
     },
     {
       "id": "hornopiren",
@@ -54,9 +53,10 @@
       "highlight": "Navegación por fiordos",
       "tips": [
         "Reserva la Ruta Bimodal con anticipación: los cupos son limitados. La opera Naviera Somarco, con salidas desde Hornopirén a las 10:00 y 18:00.",
-        "Si van a pie, Kemel Bus vende Puerto Montt–Chaitén por Ruta Bimodal. Confirma que puedes subir en Hornopirén y que el bus cubre el tramo entre ferries.",
+        "Si vas a pie, Kemel Bus vende Puerto Montt–Chaitén por Ruta Bimodal. Confirma que puedes subir en Hornopirén y que el bus cubre el tramo entre ferries.",
         "Ingreso al sendero Chaqueihua–lago Pinto Concha: de 10:00 a 16:30 si vuelves el mismo día."
       ],
+      "via": [[-41.69, -72.643]],
       "lat": -41.966,
       "lng": -72.471,
       "links": [
@@ -166,13 +166,13 @@
       "segment": "fiordo",
       "name": "Parque Queulat",
       "subtitle": "Ventisquero Colgante",
-      "description": "El ventisquero es una masa de hielo suspendida entre dos cerros, con una cascada que cae a la laguna del mismo nombre. El estacionamiento del sector está a unos 20 km al sur de Puyuhuapi, y el segundo día puede ir a otros senderos del parque.",
+      "description": "El ventisquero es una masa de hielo suspendida entre dos cerros, con una cascada que cae a la laguna del mismo nombre. El estacionamiento del sector está a unos 20 km al sur de Puyuhuapi, y el segundo día puedes ir a otros senderos del parque.",
       "sleep": "Puyuhuapi",
       "transport": "Dedo / transfer (no encontramos bus hasta la entrada)",
       "highlight": "Ventisquero Colgante",
       "tips": [
         "Compra la entrada en Pases Parques antes de ir.",
-        "El camping del sector Ventisquero está cerrado desde el 17 de abril de 2026 hasta nuevo aviso: duerman en Puyuhuapi.",
+        "El camping del sector Ventisquero está cerrado desde el 17 de abril de 2026 hasta nuevo aviso: duerme en Puyuhuapi.",
         "Las distancias al mirador no coinciden: entre 3,4 y 6,4 km ida y vuelta, 2 a 3 h. CONAF lista el sendero Morrena con 3,2 km y 2 h.",
         "Para el segundo día, CONAF lista Laguna Témpanos (600 m) y Laguna Los Pumas (5,2 km, 5 h).",
         "Bosque Encantado (sector Portezuelo, a unos 50 km de Puyuhuapi) no aparece en la lista de CONAF y un blog lo reporta cerrado. Pregunta antes de ir."
@@ -199,12 +199,12 @@
       "segment": "aysen",
       "name": "Coyhaique",
       "subtitle": "La base de Aysén",
-      "description": "La ciudad más grande de la región: cajeros, supermercados y servicios. Hay un solo día de ida, porque pasan de nuevo por aquí al volver: dejen para entonces lo que no sea urgente.",
+      "description": "La ciudad más grande de la región: cajeros, supermercados y servicios. Hay un solo día de ida, porque vuelves a pasar por aquí al regreso: deja para entonces lo que no sea urgente.",
       "sleep": "Coyhaique",
       "transport": "Buses Becker desde Puyuhuapi (miércoles y domingo)",
       "highlight": "Recarga rápida",
       "tips": [
-        "Última ciudad grande antes del sur: compra aquí lo que necesiten para los próximos 9 días.",
+        "Última ciudad grande antes del sur: compra aquí lo que necesites para los próximos 9 días.",
         "Buses al sur salen temprano: Buses Sao Paulo a las 8:00 (martes, jueves, sábado y domingo)."
       ],
       "lat": -45.571,
@@ -288,8 +288,8 @@
       "transport": "Bus (Sao Paulo o Don Carlos desde Río Tranquilo)",
       "highlight": "Huemules en Tamango",
       "tips": [
-        "Si tienen un solo día, Tamango es lo más accesible a pie. No encontramos transporte público a Valle Chacabuco.",
-        "Último cajero seguro del viaje: BancoEstado en Cochrane. Saca aquí para Tortel.",
+        "Si tienes un solo día, Tamango es lo más accesible a pie. No encontramos transporte público a Valle Chacabuco.",
+        "Último cajero antes de Tortel: BancoEstado en Cochrane. Saca aquí el efectivo que necesites.",
         "Los campings de Valle Chacabuco abren de octubre a abril y no tienen reserva. Las entradas se gestionan en Pases Parques.",
         "Compra el bus a Tortel con tiempo: no hay salidas los lunes."
       ],
@@ -316,7 +316,7 @@
       "segment": "fin",
       "name": "Caleta Tortel",
       "subtitle": "El pueblo sin calles",
-      "description": "Kilómetros de pasarelas de ciprés de las Guaitecas, cerca de la desembocadura del río Baker. El cierre del viaje, sin llegar al final de la ruta. Tienen el día 18 y la mañana del 19 antes de empezar el regreso.",
+      "description": "Kilómetros de pasarelas de ciprés de las Guaitecas, cerca de la desembocadura del río Baker. El cierre del viaje, sin llegar al final de la ruta. Tienes el día 18 y la mañana del 19 antes de empezar el regreso.",
       "sleep": "Tortel (18), Cochrane (19), Coyhaique (20)",
       "transport": "Bus Cochrane–Tortel: Aldea (9:00 mar/jue/sáb), Los Glaciares (11:00 dom/mié, 14:00 vie)",
       "highlight": "Pasarelas de ciprés",
@@ -344,7 +344,7 @@
         "title": "Regreso",
         "steps": [
           { "day": "Día 19, tarde", "text": "Bus Tortel → Cochrane, unas 3 h: 15:00 (dom/mié), 16:00 (mar/jue/sáb), 17:30 (vie). Noche en Cochrane." },
-          { "day": "Día 20", "text": "Bus Cochrane → Coyhaique, unas 7 h: Sao Paulo 6:30 (lun/mié/vie/dom), Don Carlos 7:00 (mar/jue/vie/sáb). Llegan a media tarde; noche en Coyhaique." },
+          { "day": "Día 20", "text": "Bus Cochrane → Coyhaique, unas 7 h: Sao Paulo 6:30 (lun/mié/vie/dom), Don Carlos 7:00 (mar/jue/vie/sáb). Llegada a media tarde; noche en Coyhaique." },
           { "day": "Día 21, mañana", "text": "Traslado al aeropuerto de Balmaceda, unos 55 km desde Coyhaique, y vuelo. Reserva el traslado el día anterior." }
         ],
         "note": "Volar el mismo día 20 solo sería posible con un vuelo muy tarde, que no pudimos confirmar."
@@ -356,7 +356,7 @@
     "dateNotes": {
       "title": "Revisar al definir fechas",
       "items": [
-        "No hay bus Cochrane–Tortel los lunes, en ningún sentido. Los días 18 y 19 no pueden caer en lunes: no empiecen un jueves ni un viernes, salvo que muevan un día.",
+        "No hay bus Cochrane–Tortel los lunes, en ningún sentido. Los días 18 y 19 no pueden caer en lunes: no empieces un jueves ni un viernes, salvo que muevas un día.",
         "Otros tramos tampoco son diarios: Buses Becker pasa por Santa Lucía y Puyuhuapi solo miércoles y domingo (días 8 y 11). Según los horarios publicados, empezar un domingo calza con todos los buses. Por confirmar.",
         "Los datos de esta guía asumen temporada alta (diciembre a marzo). Lo que depende de la fecha lleva la marca «Según temporada»."
       ]
