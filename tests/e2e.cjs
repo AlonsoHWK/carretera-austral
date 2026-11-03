@@ -432,6 +432,52 @@ async function featureSuite(browser) {
     await context.close();
   }
 
+  // Trail must not animate from full on load, and resizing must keep header and card in sync.
+  {
+    const context = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+    const page = await context.newPage();
+    await page.goto(BASE);
+    await page.waitForSelector('.pin');
+    const trail = await page.evaluate(() => {
+      const el = document.querySelector('.trail');
+      return { running: el.getAnimations().length, dash: parseFloat(el.style.strokeDasharray), offset: parseFloat(el.style.strokeDashoffset) };
+    });
+    check('trail starts empty with no running animation', trail.running === 0 && trail.dash === trail.offset, JSON.stringify(trail));
+
+    await page.keyboard.press('ArrowRight');
+    await page.keyboard.press('ArrowRight');
+    await page.waitForTimeout(900);
+    for (const width of [1000, 1400, 950]) {
+      await page.setViewportSize({ width, height: 800 });
+      await page.waitForTimeout(700);
+      const state = await page.evaluate(() => {
+        const track = document.getElementById('track');
+        const box = track.getBoundingClientRect();
+        const visible = [...track.children].findIndex((card) => {
+          const r = card.getBoundingClientRect();
+          return Math.abs(r.left - box.left) < 3 || (r.left >= box.left - 3 && r.right <= box.right + 3);
+        });
+        return { visible, header: Number(document.getElementById('pn').textContent) };
+      });
+      check(`resize to ${width}: header matches the visible card`, state.visible + 1 === state.header && state.header === 2 + 1, JSON.stringify(state));
+    }
+    await context.close();
+  }
+
+  // A crash while building the UI explains itself instead of leaving an empty shell.
+  {
+    const source = fs.readFileSync(path.join(ROOT, 'js/map.js'), 'utf8');
+    const head = 'export function createMap(data, svg, card, legendEl, onPick) {';
+    overrides.set('js/map.js', source.replace(head, `${head} throw new Error('fallo simulado');`));
+    const context = await browser.newContext({ viewport: { width: viewport[0], height: viewport[1] }, serviceWorkers: 'block' });
+    const page = await context.newPage();
+    await page.goto(BASE);
+    await page.waitForSelector('#fatal:not([hidden])');
+    check('UI crash shows a readable error', (await page.locator('#fatal').textContent()).includes('fallo simulado') && !(await page.locator('#app').isVisible()));
+    overrides.delete('js/map.js');
+    await context.close();
+  }
+
   // Reduced motion: programmatic jumps must not animate.
   {
     const context = await browser.newContext({ viewport: { width: viewport[0], height: viewport[1] }, reducedMotion: 'reduce' });

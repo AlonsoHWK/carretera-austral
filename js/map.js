@@ -137,9 +137,6 @@ export function createMap(data, svg, card, legendEl, onPick) {
       legEnds.push(d);
     });
 
-    const base = s('path', { class: 'base', d });
-    trail = s('path', { class: 'trail', d });
-    svg.append(base, trail);
     const measure = s('path', {});
     svg.append(measure);
     lengths = legEnds.map((part) => {
@@ -148,8 +145,11 @@ export function createMap(data, svg, card, legendEl, onPick) {
     });
     measure.remove();
     total = lengths[lengths.length - 1];
+    // Styled before attaching, so a re-render never animates the trail from full.
+    trail = s('path', { class: 'trail', d });
     trail.style.strokeDasharray = total;
     trail.style.strokeDashoffset = total - lengths[current];
+    svg.append(s('path', { class: 'base', d }), trail);
 
     const sides = placeLabels(stops, shown, routeBoxes, width);
     const layer = s('g', {});
@@ -222,9 +222,18 @@ export function createMap(data, svg, card, legendEl, onPick) {
     if (trail) trail.style.strokeDashoffset = total - lengths[index];
   }
 
-  new ResizeObserver(render).observe(card);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(render);
-  render();
+  function safeRender() {
+    try {
+      render();
+    } catch (error) {
+      console.error(error);
+      card.querySelector('.hint').textContent = `No se pudo dibujar el mapa: ${error.message}`;
+    }
+  }
+
+  new ResizeObserver(safeRender).observe(card);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(safeRender);
+  safeRender();
 
   return { update };
 }

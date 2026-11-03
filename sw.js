@@ -1,6 +1,6 @@
 // Bump VERSION whenever any file in SHELL changes: it is what triggers the update toast.
 // data/itinerary.json lives in its own cache and is updated by js/data.js, not by this version.
-const VERSION = '1.0.0';
+const VERSION = '1.0.1';
 const SHELL_PREFIX = 'ca-shell-';
 const SHELL_CACHE = SHELL_PREFIX + VERSION;
 const DATA_CACHE = 'ca-data-v1';

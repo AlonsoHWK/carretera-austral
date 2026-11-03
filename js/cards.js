@@ -135,10 +135,20 @@ export function createCards(data, track, dotsEl, { onChange, onVisitedChange }) 
       const index = cards.indexOf(entry.target);
       if (pending !== null && index !== pending) continue;
       clearPending();
+      current = index;
       onChange(index);
     }
   }, { root: track, threshold: 0.6 });
   cards.forEach((card) => observer.observe(card));
+
+  // A width change moves the snap points, so realign to the stop the header shows.
+  let current = 0;
+  let trackWidth = track.clientWidth;
+  new ResizeObserver(() => {
+    if (track.clientWidth === trackWidth) return;
+    trackWidth = track.clientWidth;
+    goTo(current, false);
+  }).observe(track);
 
   function goTo(index, smooth = true) {
     const card = cards[index];
@@ -148,6 +158,7 @@ export function createCards(data, track, dotsEl, { onChange, onVisitedChange }) 
     clearTimeout(pendingTimer);
     pendingTimer = setTimeout(clearPending, 1500);
     track.scrollTo({ left, behavior: smooth && !prefersReducedMotion() ? 'smooth' : 'auto' });
+    current = index;
     onChange(index);
   }
 

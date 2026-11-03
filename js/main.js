@@ -40,8 +40,6 @@ function showFatal(errors) {
     status);
   fatal.hidden = false;
   registerServiceWorker();
-  // A valid version may already be published: recover without asking when there is signal.
-  if (navigator.onLine) recoverData().catch(() => {});
 }
 
 function watchNetwork() {
@@ -135,5 +133,15 @@ function start(data, text) {
 }
 
 const result = await loadItinerary();
-if (result.errors) showFatal(result.errors);
-else start(result.data, result.text);
+if (result.errors) {
+  showFatal(result.errors);
+  // A valid version may already be published: recover without asking when there is signal.
+  if (navigator.onLine) recoverData().catch(() => {});
+} else {
+  try {
+    start(result.data, result.text);
+  } catch (error) {
+    console.error(error);
+    showFatal([`Error de la app: ${error.message}`]);
+  }
+}
